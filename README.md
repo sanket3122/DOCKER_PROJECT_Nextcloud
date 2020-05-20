@@ -1,5 +1,4 @@
-
-
+  # DOCKER_PROJECT_Nextcloud
 
 I have created a Docker Project using a cloud called NextCloud and MySQL Database on top of RedHat8 Linux OS. Here I am  going to show you the whole set-up step by step. 
 
@@ -67,16 +66,16 @@ To expose our container to outside world by using PAT.
    
    ## 7) Troubleshooting the errors
 Linux firewall won't allow to connect to MySQL database server and to outside world. Hence following commands should be implemented first in order to connect to server.
-- selinux 0
-- iptables -F
-- iptables -P FORWARD ACCEPT
-- firewall-cmd --zone=trusted --change-interface=docker0 --permanent 
+- [x] selinux 0
+- [x] iptables -F
+- [x] iptables -P FORWARD ACCEPT
+- [x] firewall-cmd --zone=trusted --change-interface=docker0 --permanent 
 (If there are any other networks for docker add them too like br-xxxxx)
-- firewall-cmd --zone=trusted --add-masquerade --permanent
-- firewall-cmd --add-port=3306/tcp
-- firewall-cmd --reload
-- systemctl restart docker
-- Change your network settings to Bridge Adapter
+- [x] firewall-cmd --zone=trusted --add-masquerade --permanent
+- [x] firewall-cmd --add-port=3306/tcp
+- [x] firewall-cmd --reload
+- [x] systemctl restart docker
+- [x] Change your network settings to Bridge Adapter
          
    That's it. You can start/stop your services in just a single go.  
-             NOTE : - It only works on other devices if you have a same network connectivity (LAN). You can use any of the images like WordPress, Joomla, Drupal, Owncloud, etc and Database images like MariaDB, Oracle, etc.
+            :+1: NOTE  : - It only works on other devices if you have a same network connectivity (LAN). You can use any of the images like WordPress, Joomla, Drupal, Owncloud, etc and Database images like MariaDB, Oracle, etc.
