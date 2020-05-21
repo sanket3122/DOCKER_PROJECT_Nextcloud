@@ -6,7 +6,7 @@ I have created a Docker Project using a cloud called NextCloud and MySQL Databas
 ## 1) Download the RedHat 8 Linux 
 ## 2) Download the Docker tool
 
-First of all configure the yum command in linux and download the software by 
+First of all configure the yum command in linux and download the software by:
         
     yum install docker-ce --nobest 
 and start the docker by command 
