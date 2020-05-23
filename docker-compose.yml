@@ -1,0 +1,31 @@
+version: '3'
+services: 
+  dbos:
+    image: mysql:5.7
+    restart: always
+    volumes: 
+      - mysql_storage_new:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: rootpass
+        MYSQL_USER: sanket
+        MYSQL_PASSWORD: redhat
+        MYSQL_DATABASE: mydb
+    
+  cloudos: 
+    image: nextcloud:latest
+    restart: always
+    depends_on:
+      - dbos
+    ports:
+      - 8086:80
+    volumes: 
+      - cloud_storage_new:/var/www/html
+    environment:
+        MYSQL_HOST: dbos
+        MYSQL_USER: sanket
+        MYSQL_PASSWORD: redhat
+        MYSQL_DATABASE: mydb
+    
+volumes:
+  mysql_storage_new:
+  cloud_storage_new:
